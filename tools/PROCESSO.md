@@ -45,3 +45,9 @@ Fundo preto (#070707), destaque laranja (#FF7A1A) com brilho, texto claro. Cabe�
 ### Semana 22–28/10/2026
 - Carrosséis/imagem: O que é ser afiliado no Google Ads · Google Ads x Meta Ads · Glossário CPC/CTR/CPA/ROI · Frase de domingo (campanha boa nasce do teste) · Estrutura da campanha de Pesquisa · Checklist da 1ª campanha · Plataformas gringas (ClickBank, Digistore24, BuyGoods)
 - Reels: Por que brasileiros vendem para fora · Precisa falar inglês? · Erro nº 1 (escolher pela comissão) · Prazer, Águias do Digital · Por que focamos em Pesquisa · Mito: precisa de muito dinheiro? · Página de pré-venda
+
+### Semana 29/10–04/11/2026
+- Carrosséis/imagem: Tipos de correspondência (ampla, frase, exata) · Palavras-chave negativas · Anatomia do anúncio de Pesquisa · Frase de domingo (os números não têm ansiedade) · Relatório de termos de pesquisa · Índice de Qualidade · Buscas em inglês por intenção (curiosidade, comparação, decisão)
+- Reels: Rastreamento de conversão · 3 sinais de que a campanha precisa de ajuste · Escalar orçamento aos poucos · Rotina diária de quem roda campanhas · Fuso horário e programação de anúncios · Por que anúncios são reprovados · Maximizar cliques x Maximizar conversões
+- Músicas usadas (audioId): Stardust (Instrumental) 1540755600953104 · Motive (Instrumental) 1579921342191993 · Hypnotized (Instrumental) 1852688158814799 · You Can Do It Too (Instrumental) 973266493758189 · Maya Maya (Instrumental) 823145229909724 · Be Happy (Instrumental) 761736589642441 · Carnaval (Instrumental) 897193789954241
+- Specs: `specs/carrosseis_semana2.py` e `specs/reels_semana2.py`. Obs.: renderizar os 7 Reels de uma vez passa de 10 min; rode em 2 lotes.
