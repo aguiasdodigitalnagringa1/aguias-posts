@@ -51,3 +51,9 @@ Fundo preto (#070707), destaque laranja (#FF7A1A) com brilho, texto claro. Cabe�
 - Reels: Rastreamento de conversão · 3 sinais de que a campanha precisa de ajuste · Escalar orçamento aos poucos · Rotina diária de quem roda campanhas · Fuso horário e programação de anúncios · Por que anúncios são reprovados · Maximizar cliques x Maximizar conversões
 - Músicas usadas (audioId): Stardust (Instrumental) 1540755600953104 · Motive (Instrumental) 1579921342191993 · Hypnotized (Instrumental) 1852688158814799 · You Can Do It Too (Instrumental) 973266493758189 · Maya Maya (Instrumental) 823145229909724 · Be Happy (Instrumental) 761736589642441 · Carnaval (Instrumental) 897193789954241
 - Specs: `specs/carrosseis_semana2.py` e `specs/reels_semana2.py`. Obs.: renderizar os 7 Reels de uma vez passa de 10 min; rode em 2 lotes.
+
+### Semana 05–11/11/2026
+- Carrosséis/imagem: Como organizar grupos de anúncios · Planejador de palavras-chave · 4 coisas para avaliar em uma oferta · Frase de domingo (constância vence intensidade) · O que a página de destino precisa ter para passar confiança · Local e idioma da campanha (presença x interesse) · Teste A/B de anúncios
+- Reels: Como o Google gasta o orçamento diário · Verificação de anunciante · Erro: mexer na campanha todo dia · Afiliado x produtor: quem faz o quê · O caminho do clique à comissão · Por que o CPC muda tanto · 3 perguntas antes de pausar uma campanha
+- Músicas usadas (audioId): Spontaneous (Instrumental) 235065218897660 · Bulletproof (Instrumental) 844709300522860 · Someday (Instrumental) 976299230340697 · Todo Bien (Instrumental) 998330555713118 · Sheesh (Instrumental) 1969553887185917 · Donde Tu Like It (Instrumental) 592285976921117 · Zara Si Hansi (Instrumental) 619234943566409
+- Specs: `specs/carrosseis_semana3.py` e `specs/reels_semana3.py`. Obs.: busca útil de músicas no conector: audioId "(Instrumental) Version" devolve lista de candidatos instrumentais.
