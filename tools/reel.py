@@ -1,6 +1,7 @@
 """Gera Reels animados (1080x1920, MP4 H.264) no padrão Águias do Digital.
 Uso: python3 reel.py <spec.json> <out_dir>
 spec = {"id": "...", "scenes": [{"kick": "...", "html": "...", "dur": 3.2}, ...]}
+Com "raw": true as cenas vêm prontas de tools/modelos.py (padrão desde 19/11/2026).
 """
 import json, sys, pathlib, subprocess, shutil
 from playwright.sync_api import sync_playwright
@@ -30,7 +31,12 @@ CSS = render.CSS.replace("width:1080px;height:1350px", "width:1080px;height:1920
 """
 
 
-def frame(scene, i, n):
+def frame(scene, i, n, raw=False):
+    if raw:  # modelos novos (tools/modelos.py): a cena já é a página inteira
+        import modelos
+        bar = "".join(f"<i class='{'on' if k <= i else ''}'></i>" for k in range(n))
+        body = scene["html"].replace("{{LOGO}}", render.LOGO).replace("{{BAR}}", bar)
+        return modelos.HTML_HEAD.format(css=render.CSS + modelos.CSS, body=body)
     bar = "".join(f"<i class='{'on' if k <= i else ''}'></i>" for k in range(n))
     kick = f"<div class='kick'>{scene['kick']}</div>" if scene.get("kick") else ""
     top = "" if scene.get("cta") else f"<div class='rtop'><img src='{render.LOGO}'>Águias do Digital</div>"
@@ -48,7 +54,7 @@ def build(spec_path, out_dir):
     with sync_playwright() as pw:
         b = pw.chromium.launch(); pg = b.new_page(viewport={"width": W, "height": H})
         for i, sc in enumerate(scenes):
-            pg.set_content(frame(sc, i, n), wait_until="load"); pg.wait_for_timeout(120)
+            pg.set_content(frame(sc, i, n, spec.get("raw", False)), wait_until="load"); pg.wait_for_timeout(120)
             pg.screenshot(path=str(tmp / f"s{i:02d}.png"))
         b.close()
     # um clipe por cena com zoom lento; depois encadeia com crossfade

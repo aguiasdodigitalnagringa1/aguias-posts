@@ -1,0 +1,2 @@
+Pasta para o dono enviar os vídeos gravados (Reels com rosto).
+Nome sugerido: AAAA-MM-DD_rosto.mp4 (data do post). Pelo site do GitHub: Add file > Upload files (até 25 MB por arquivo).

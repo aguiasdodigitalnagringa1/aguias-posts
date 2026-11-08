@@ -1,4 +1,5 @@
-"""Renderiza slides de carrossel (1080x1350, JPEG) no padrão visual Águias do Digital."""
+"""Renderiza slides de carrossel (1080x1350, JPEG) no padrão visual Águias do Digital.
+Spec com "raw": true usa os modelos de tools/modelos.py (padrão desde 19/11/2026)."""
 import base64, json, sys, pathlib
 from playwright.sync_api import sync_playwright
 
@@ -71,9 +72,16 @@ def render(spec_path, out_dir):
     with sync_playwright() as pw:
         b = pw.chromium.launch()
         pg = b.new_page(viewport={"width": 1080, "height": 1350})
+        raw = spec.get("raw", False)
+        if raw:
+            import modelos
         for i, html in enumerate(slides, 1):
-            html = html.replace("{{LOGO}}", LOGO)
-            pg.set_content(page(html, i, n, swipe=i < n), wait_until="load")
+            html = html.replace("{{LOGO}}", LOGO).replace("{{N}}", f"{i:02d}").replace("{{T}}", f"{n:02d}")
+            if raw:  # modelos novos (tools/modelos.py): o slide já traz cabeçalho e rodapé
+                doc = modelos.HTML_HEAD.format(css=CSS + modelos.CSS, body=html)
+            else:
+                doc = page(html, i, n, swipe=i < n)
+            pg.set_content(doc, wait_until="load")
             pg.wait_for_timeout(150)
             f = out / f"{spec['id']}_{i:02d}.jpg"
             pg.screenshot(path=str(f), type="jpeg", quality=92)

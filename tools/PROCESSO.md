@@ -10,19 +10,43 @@ Só depois que ele responder aprovando no chat é que os rascunhos viram agendad
 ## Cadência
 - 14 posts por semana, de quinta a quarta.
 - **12:00** → carrossel (5–6 slides, 1080x1350) ou imagem única.
-- **19:00** → Reel animado (1080x1920, ~20 s, 6 cenas).
+- **19:00** → Reel (1080x1920, ~20 s).
 - Fuso: America/Sao_Paulo.
+
+## Grade de séries (padrão desde a semana de 19/11/2026)
+O dono pediu para variar os modelos e profissionalizar o perfil: **cada dia tem uma série fixa**, com layout próprio (ver `tools/modelos.py`).
+
+| Dia | 12:00 (carrossel/imagem) | 19:00 (Reel) |
+|---|---|---|
+| Qui | A · Tutorial com tela | G · Reel com tela de celular |
+| Sex | E · Mito x Verdade | H · Reel em lista (claro) |
+| Sáb | C · Métrica da semana | **R · Reel com rosto** (fallback: G) |
+| Dom | F · Frase de domingo (imagem única) | H · Reel em lista (claro) |
+| Seg | D · Checklist (claro) | G · Reel com tela de celular |
+| Ter | B · Errado x Certo | **R · Reel com rosto** (fallback: H) |
+| Qua | A · Tutorial com tela | G · Reel com tela de celular |
+
+- Ilustrações de tela (anúncio, tabela, painel) são **genéricas**: sem marca real, sem dados reais, sempre com "ilustração" ou "valores fictícios".
+- Temas escolhidos de acordo com a série (ex.: Métrica → CTR, CPA, parcela de impressões; Errado x Certo → escolhas de configuração).
+
+### Reels com rosto (R)
+O dono grava 2 vídeos por semana (sáb e ter). Fluxo:
+1. Na produção semanal, escreva **2 roteiros** (30–45 s): gancho (até 3 s), 3 pontos curtos, CTA "link na bio". Inclua o texto de tela sugerido.
+2. Crie os rascunhos desses horários com o Reel gráfico de fallback (G/H) e mande os roteiros junto com o pedido de aprovação.
+3. Quando o dono mandar o vídeo (no chat ou na pasta `entrada/` do repositório), gere a capa no padrão da série, salve em `posts/AAAA-MM-DD/`, dê push e troque a mídia do rascunho (updateScheduledPost, mantendo o resto do post).
 
 ## Ferramentas (pasta `tools/`)
 - `render.py <spec.json> <saida>` → gera slides JPEG do carrossel. Spec: `{"id": "...", "slides": ["<html>", ...]}`.
 - `reel.py <spec.json> <saida>` → gera MP4 + `_capa.png`. Spec: `{"id": "...", "scenes": [{"kick","html","dur"}]}`.
-- `specs/carrosseis_semana1.py` e `specs/reels_semana1.py` → modelos de como escrever os specs (helpers `cover`, `text`, `items`, `box`, `cta`, `hook`, `sc`). Copie e adapte.
+- **`modelos.py` + `specs/exemplos_modelos.py`** → modelos atuais (séries A–H). Cada função gera um slide/cena completo; specs com `"raw": true`. Comece copiando `exemplos_modelos.py`.
+- `specs/carrosseis_semana1..4.py` e `specs/reels_semana1..4.py` → modelo antigo (único layout), só como referência de textos.
 - `assets/logo.png` → emblema dourado (versão sem o "G" do Google).
 - Dependências: Python, Playwright (Chromium), Pillow, ffmpeg. Fontes Poppins/Inter em /usr/share/fonts.
 - Rode os scripts de dentro de `tools/` (o `reel.py` importa o `render.py`).
 
 ## Identidade visual
-Fundo preto (#070707), destaque laranja (#FF7A1A) com brilho, texto claro. Cabeçalho com o emblema + "Águias do Digital", rodapé "@aguiasdodigitalads", slide/cena final com o emblema grande e botão "Link na bio".
+Fundo preto (#070707), destaque laranja (#FF7A1A) com brilho, texto claro. Cabeçalho com o emblema + "Águias do Digital" e o nome da série com a numeração (ex.: "TUTORIAL · 02/05"), rodapé "@aguiasdodigitalads", slide/cena final com o emblema grande e botão "Link na bio".
+Séries Checklist (D) e Reel em lista (H) usam a variação clara: fundo creme (#F5F0E8), texto preto, laranja escuro (#D9620B) e títulos serifados (Lora).
 
 ## Publicação
 1. Salvar mídias em `posts/AAAA-MM-DD/` neste repositório e dar push (o repositório é público; o Metricool baixa pelo link `https://raw.githubusercontent.com/aguiasdodigitalnagringa1/aguias-posts/main/posts/...`).
