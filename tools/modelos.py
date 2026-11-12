@@ -30,7 +30,7 @@ CSS = f"""
 body{{width:auto;height:auto}}
 .pg{{position:relative;width:1080px;height:1350px;overflow:hidden;background:#0B0B0C;color:#F4F1EC}}
 .pg.lt{{background:{CREAM};color:#141414}}
-.pg.lt p{{color:#3a3a3a}} .pg.lt p b{{color:#141414}}
+.pg.lt p,.rl.lt p{{color:#3a3a3a}} .pg.lt p b,.rl.lt p b{{color:#141414}}
 .rl{{position:relative;width:1080px;height:1920px;overflow:hidden;background:radial-gradient(1000px 900px at 80% 8%,rgba(255,122,26,.24),transparent 60%),#070707;color:#F4F1EC}}
 .rl.lt{{background:{CREAM};color:#141414}}
 .hdr{{position:absolute;z-index:5;top:64px;left:80px;right:80px;display:flex;justify-content:space-between;align-items:center;font-family:Pop;font-weight:700;font-size:24px;letter-spacing:1px}}
